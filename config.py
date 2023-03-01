@@ -1,6 +1,6 @@
 import os
 
-SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://flask_db:admin@127.0.0.1:3306/flask_db'
+SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://admin:admin@127.0.0.1:3306/flask_db'
 # SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://std_1539_exam:1234567890@std-mysql.ist.mospolytech.ru/std_1539_exam'
 
 

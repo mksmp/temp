@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+
+  pr_incident_db: #Имя сервиса
+    container_name: flask_db #Имя с которым запустится контейнер
+    hostname: flask_db #Имя "хоста" которым будет считать себя контейнер
+    image: mysql:latest #Образ из которого запускается контейнер
+    volumes: #Подключаемые директории
+      - dbdata:/var/lib/mysql #Директории вида хост_директория:директория_контейнера
+      - ./std_1539_exam.sql :/docker-entrypoint-initdb.d/flask_db.sql
+    environment: #переменные окружения
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_DATABASE: flask_db
+    ports: # Сопоставление портов хост-машины и контейнера
+      - 3306:3306
+    restart: unless-stopped #условие для рестарта в случае остановки контейнера
+
+
+volumes:
+  dbdata:

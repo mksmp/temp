@@ -41,7 +41,7 @@ per_page = 10
 def index():
     page = request.args.get('page', 1, type=int)
     books = BooksFilter(**search_params()).perform()
-    pagination = books.paginate(page, per_page)
+    pagination = books.paginate(page=page, per_page=per_page)
     books = pagination.items
     images = []
     book_genres = []

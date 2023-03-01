@@ -35,13 +35,13 @@ from models import Image, Join
 def search_params():
     return {'name': request.args.get('name')}
     
-PER_PAGE = 10
+per_page = 10
 
 @app.route('/')
 def index():
     page = request.args.get('page', 1, type=int)
     books = BooksFilter(**search_params()).perform()
-    pagination = books.paginate(page, PER_PAGE)
+    pagination = books.paginate(page, per_page)
     books = pagination.items
     images = []
     book_genres = []
